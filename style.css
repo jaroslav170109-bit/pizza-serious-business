@@ -1,0 +1,44 @@
+body {
+    background: #eee;
+    font-family: Arial;
+    text-align: center;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+.pizza {
+    display: inline-block;
+    vertical-align: top;
+
+    background: white;
+    width: 250px;
+    margin: 20px;
+    padding: 15px;
+    border: 2px solid black;
+}
+
+.pizza img {
+    width: 200px;
+    height: 150px;
+}
+
+button {
+    background: red;
+    color: white;
+    border: 0;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: darkred;
+}
+
+#cartList {
+    background: white;
+    width: 300px;
+    margin: auto;
+    padding: 15px;
+}

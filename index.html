@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>nimi</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+
+<body>
+
+    <h1>nimi</h1>
+
+    <a href="#cart">🛒 Ostoskori</a>
+
+    <hr>
+
+    <div class="pizza">
+        <img src="kuva1.png">
+        <h2>pizza1</h2>
+        <p>10 €</p>
+        <button onclick="addPizza('pizza1', 10)">Lisää koriin</button>
+    </div>
+
+    <div class="pizza">
+        <img src="kuva2.png">
+        <h2>pizza2</h2>
+        <p>12 €</p>
+        <button onclick="addPizza('pizza2', 12)">Lisää koriin</button>
+    </div>
+
+    <div class="pizza">
+        <img src="kuva3.png">
+        <h2>pizza3</h2>
+        <p>15 €</p>
+        <button onclick="addPizza('pizza3', 15)">Lisää koriin</button>
+    </div>
+
+    <hr>
+
+    <h2 id="cart">🛒 Ostoskori</h2>
+
+    <div id="cartList">
+        Ostoskori on tyhjä
+    </div>
+
+    <h3>Yhteensä: <span id="total">0</span> €</h3>
+
+    <button onclick="buy()">Osta</button>
+
+    <script src="Script.js"></script>
+
+</body>
+</html>
