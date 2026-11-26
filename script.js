@@ -114,3 +114,16 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+/*
+
+const paivitaPainike = document.getElementById("paivita summa");
+const  syottoKentta = document.getElementById("etukoodi");
+const valittuArvo = document.getElementById("valittu-arvo");
+
+const syotettyTeksti = syottoKentta.value.trim();
+
+   
+    valittuArvo.textContent = syotettyTeksti;
+    
+*/
