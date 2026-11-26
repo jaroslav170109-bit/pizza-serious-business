@@ -55,9 +55,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 3. Lahjakortit ja etukoodi (20–250 €)
     const summaPainikkeet = document.querySelectorAll('.summa-buttons button[data-arvo]');
-    const etukoodiInput = document.getElementById('etukoodi');
-    const paivitaBtn = document.getElementById('paivita-summa');
-    const valittuArvoSpan = document.getElementById('valittu-arvo');
+    
+    // Kommentista poimitut elementit (korjattu oikea ID: "paivita-summa")
+    const paivitaPainike = document.getElementById('paivita-summa');
+    const syottoKentta = document.getElementById('etukoodi');
+    const valittuArvo = document.getElementById('valittu-arvo');
 
     let nykyinenSumma = 0;
 
@@ -73,24 +75,25 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function paivitaNaytto(summa, koodi = '') {
-        if (!valittuArvoSpan) return;
+        if (!valittuArvo) return;
         const loppusumma = laskeAlennus(summa, koodi);
         nykyinenSumma = loppusumma;
-        valittuArvoSpan.textContent = loppusumma.toString();
+        valittuArvo.textContent = loppusumma.toString();
     }
 
     summaPainikkeet.forEach((painike) => {
         painike.addEventListener('click', () => {
             const arvo = Number(painike.getAttribute('data-arvo'));
-            const koodi = etukoodiInput ? etukoodiInput.value : '';
+            const koodi = syottoKentta ? syottoKentta.value : '';
             paivitaNaytto(arvo, koodi);
         });
     });
 
-    if (paivitaBtn && etukoodiInput) {
-        paivitaBtn.addEventListener('click', () => {
-            const syote = etukoodiInput.value.trim();
-            const numero = Number(syote.replace(',', '.'));
+    if (paivitaPainike && syottoKentta) {
+        paivitaPainike.addEventListener('click', () => {
+            // Otetaan syötetty teksti huomioon (kuten kommentin logiikassa)
+            const syotettyTeksti = syottoKentta.value.trim();
+            const numero = Number(syotettyTeksti.replace(',', '.'));
 
             if (!Number.isNaN(numero) && numero > 0) {
                 if (numero < 20 || numero > 250) {
@@ -98,9 +101,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     return;
                 }
                 paivitaNaytto(numero, '');
-            } else if (syote) {
+            } else if (syotettyTeksti) {
                 const perusSumma = nykyinenSumma > 0 ? nykyinenSumma : 50;
-                paivitaNaytto(perusSumma, syote);
+                paivitaNaytto(perusSumma, syotettyTeksti);
             }
         });
     }
@@ -114,16 +117,3 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
-
-/*
-
-const paivitaPainike = document.getElementById("paivita summa");
-const  syottoKentta = document.getElementById("etukoodi");
-const valittuArvo = document.getElementById("valittu-arvo");
-
-const syotettyTeksti = syottoKentta.value.trim();
-
-   
-    valittuArvo.textContent = syotettyTeksti;
-    
-*/
