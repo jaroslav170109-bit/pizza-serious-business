@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Enrico</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <!-- 1. Yläpalkki (Navigaatio ja logo) -->
+    <!-- rautalankamallin rakenn: Logo Pizza Enrico : Etusivu : Menu : Tilaa ja lahjakortit : Meistä : Palaute ja yhteys[cite: 4] -->
+    <header>
+        <div class="logo">
+            <h1>Pizza Enrico</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#etusivu">Etusivu</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#tilaus">Tilaa ja lahjakortit</a></li>
+                <li><a href="#meista">Meistä</a></li>
+                <li><a href="#palaute">Palaute ja yhteys</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- 2. Hero-osio (Otsikko, esittely ja yhteystiedot)[cite: 4] -->
+        <!-- Vastaa luokkakaavion Pizza Enrico -luokkaa (nimi, osoite, puhelin, aukioloajat, naytaYhteystiedot())[cite: 1] -->
+        <section id="etusivu" class="hero-section">
+            <h2>Tervetuloa Pizza Enricoon!</h2>
+            <p>Parasta pizzaa ja lounasta kaupungissa.</p>
+            
+            <!-- Yhteystiedot-lohko, jota JavaScript voi päivittää tai näyttää (naytaYhteystiedot)[cite: 1] -->
+            <div class="yhteystiedot">
+                <p><strong>Osoite:</strong> Korsholmantie 2, Puhos[cite: 4]</p>
+                <p><strong>Puh:</strong> <span class="puhelin">040-1234567</span></p>
+                <p><strong>Aukioloajat:</strong> Ma-Su 10:00 - 21:00</p>
+            </div>
+
+            <!-- Toimintopainikkeet (Hero-osio)[cite: 4] -->
+            <div class="hero-buttons">
+                <a href="#menu"><button type="button">Katso Menu</button></a>
+                <a href="#tilaus"><button type="button">Tilaa nyt</button></a>
+            </div>
+        </section>
+
+        <!-- 3. Menu ja lounastarjous[cite: 4] -->
+        <!-- Vastaa MenuTuote-luokkaa (nimi, kategoria, hinta, ruokavalio, suodataRuokavalio())[cite: 1] -->
+        <section id="menu" class="menu-section">
+            <h2>Menu ja lounastarjous</h2>
+            <p class="lounas-info">Lounastarjous: 13,90 € / 14,90 €[cite: 4]</p>
+
+            <!-- Suodatuspainikkeet JS-toiminnallisuutta varten (suodataRuokavalio)[cite: 1, 2, 4] -->
+            <!-- data-filter-attribuutin avulla JavaScript tunnistaa valitun ruokavalion helposti -->
+            <div class="filter-buttons">
+                <button type="button" data-filter="kaikki">Kaikki</button>
+                <button type="button" data-filter="kasvis">Kasvis</button>
+                <button type="button" data-filter="gluteeniton">Gluteeniton</button>
+            </div>
+
+            <!-- Tuotekortit (MenuTuote-oliot)[cite: 1, 4] -->
+            <!-- data-kategoria-attribuutti helpottaa tuotteiden suodatusta JavaScriptillä -->
+            <div class="tuote-list">
+                <!-- Tuote 1: Margherita[cite: 4] -->
+                <article class="tuote-kortti" data-kategoria="kasvis gluteeniton">
+                    <h3>Margherita</h3>
+                    <p>Kategoria: Pizzat</p>
+                    <p>Ruokavalio: Kasvis, Gluteeniton</p>
+                    <p class="hinta">11,50 €</p>
+                </article>
+
+                <!-- Tuote 2: Pepperoni[cite: 4] -->
+                <article class="tuote-kortti" data-kategoria="liha">
+                    <h3>Pepperoni</h3>
+                    <p>Kategoria: Pizzat</p>
+                    <p>Ruokavalio: Normaali</p>
+                    <p class="hinta">13,00 €</p>
+                </article>
+
+                <!-- Tuote 3: Kebab[cite: 4] -->
+                <article class="tuote-kortti" data-kategoria="liha">
+                    <h3>Kebab</h3>
+                    <p>Kategoria: Kebabit</p>
+                    <p>Ruokavalio: Normaali</p>
+                    <p class="hinta">12,00 €</p>
+                </article>
+
+                <!-- Tuote 4: Lounas[cite: 4] -->
+                <article class="tuote-kortti" data-kategoria="lounas">
+                    <h3>Päivän lounas</h3>
+                    <p>Kategoria: Lounas</p>
+                    <p>Ruokavalio: Saatavilla kasvis ja gluteeniton</p>
+                    <p class="hinta">13,90 €</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- 4. Tilaus ja lahjakortit[cite: 2, 4] -->
+        <!-- Vastaa Lahjakortti-luokkaa (arvo, etukoodi, valitseSumma(), laskeAlennus())[cite: 1] sekä käyttötapauskaaviota[cite: 2] -->
+        <section id="tilaus" class="tilaus-section">
+            <h2>Tilaus ja lahjakortit</h2>
+            
+            <!-- Tilausvaihtoehdot ja linkit (avaaTilauslinkki(palvelu))[cite: 1, 4] -->
+            <div class="tilaus-linkit">
+                <h3>Tilausvaihtoehdot: Kuljetus, Nouto, Paikan päällä[cite: 4]</h3>
+                <p>Tilaa suoraan kumppaneidemme kautta (20–250 €):[cite: 2]</p>
+                <a href="https://wolt.com" target="_blank" rel="noopener"><button type="button" data-palvelu="wolt">Wolt</button></a>
+                <a href="https://ubereats.com" target="_blank" rel="noopener"><button type="button" data-palvelu="ubereats">Uber Eats</button></a>
+            </div>
+
+            <!-- Lahjakortit ja edut (valitseSumma(), laskeAlennus())[cite: 1, 4] -->
+            <div class="lahjakortti-box">
+                <h3>Lahjakortit ja edut</h3>
+                <p>Valitse summa:</p>
+                <!-- data-arvo-attribuutit valmiina JS-laskentaa varten -->
+                <div class="summa-buttons">
+                    <button type="button" data-arvo="20">20 €</button>
+                    <button type="button" data-arvo="50">50 €</button>
+                    <button type="button" data-arvo="100">100 €</button>
+                    <button type="button" data-arvo="200">200 €</button>
+                </div>
+
+                <!-- Summan päivitys ja etukoodin syöttö[cite: 1, 4] -->
+                <div class="lahjakortti-input">
+                    <label for="etukoodi">Etukoodi tai oma summa:</label>
+                    <input type="text" id="etukoodi" name="etukoodi" placeholder="Syötä summa tai etukoodi">
+                    <button type="button" id="paivita-summa">Päivitä summa</button>
+                    <p>Valittu summa: <span id="valittu-arvo">0</span> €</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Tietoa meistä ja sijainti[cite: 4] -->
+        <!-- Vastaa kaavion kohtia: Historia, ruoan valmistus, sijainti kartalta ja aukioloajat[cite: 3, 4] -->
+        <section id="meista" class="about-section">
+            <h2>Tietoa meistä ja sijainti</h2>
+            <p>Pizza Enrico valmistaa perinteisiä pizzoja ja kebabeja tuoreista, laadukkaista raaka-aineista.</p>
+            <p><strong>Osoite:</strong> Korsholmantie 2, Puhos[cite: 4]</p>
+            <p><strong>Aukioloajat:</strong> Ma-Su 10:00 - 21:00</p>
+            
+            <!-- Paikkamerkki kartalle (esim. Google Maps -upotus tai kuva)[cite: 3] -->
+            <div class="map-placeholder">
+                <p>[Kartta / Sijainti -alue]</p>
+            </div>
+        </section>
+
+        <!-- 6. Asiakaspalaute[cite: 4] -->
+        <!-- Vastaa Asiakaspalaute-luokkaa (lahettaja, sahkoposti, viesti, tarkistaKentat(), lahetaPalaute())[cite: 1] -->
+        <section id="palaute" class="palaute-section">
+            <h2>Asiakaspalaute</h2>
+            <!-- Lomakkeen ID mahdollistaa helpon käsittelyn JS:llä (tarkistaKentat ja lahetaPalaute)[cite: 1, 2] -->
+            <form id="feedback-form">
+                <div>
+                    <label for="lahettaja">Nimi:</label><br>
+                    <input type="text" id="lahettaja" name="lahettaja" required>
+                </div>
+                <div>
+                    <label for="sahkoposti">Sähköposti:</label><br>
+                    <input type="email" id="sahkoposti" name="sahkoposti" required>
+                </div>
+                <div>
+                    <label for="viesti">Viesti:</label><br>
+                    <textarea id="viesti" name="viesti" rows="4" required></textarea>
+                </div>
+                <button type="submit">Lähetä palaute</button>
+                <!-- Kuittausviestin paikka JS-tarkistuksen jälkeen[cite: 4] -->
+                <p id="palaute-kuittaus"></p>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- 7. Alatunniste (Yhteystiedot ja some)[cite: 2, 4] -->
+    <footer>
+        <p>&copy; 2026 Pizza Enrico. Kaikki oikeudet pidätetään.</p>
+        <p>Puhelin: 040-1234567 | Osoite: Korsholmantie 2, Puhos[cite: 4]</p>
+        <div class="social-links">
+            <a href="#">Facebook</a> | <a href="#">Instagram</a>
+        </div>
+    </footer>
+    <script src="script.js" defer></script>
+</body>
+</html>
